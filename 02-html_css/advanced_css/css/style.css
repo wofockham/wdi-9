@@ -1,0 +1,16 @@
+.container {
+  text-align: center;
+}
+
+button {
+  border: 5px solid black;
+  background: none;
+  width: 180px;
+  height: 75px;
+  font-size: 30px;
+}
+
+button:hover {
+  background: black;
+  color: white;
+}
