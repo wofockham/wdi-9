@@ -1,6 +1,25 @@
+@import url(http://fonts.googleapis.com/css?family=Lora:400,700,400italic);
+
+@-webkit-keyframes makeItRadical {
+  0% {  text-shadow: 10px 5px 5px hotpink; }
+  100% {  text-shadow: -10px 5px 5px hotpink; }
+}
+
 .container {
   text-align: center;
 }
+
+h1 {
+  font-family: 'Lora', serif;
+  font-size: 50px;
+  text-align: center;
+  padding: 0 0 10px 0;
+  letter-spacing: 10px;
+  animation: makeItRadical 5s infinite;
+  -webkit-animation: makeItRadical 2s infinite;
+  -webkit-animation-direction: alternate;
+}
+
 
 button {
   border: 5px solid black;
@@ -8,9 +27,18 @@ button {
   width: 180px;
   height: 75px;
   font-size: 30px;
+  /* transition: background 0.2s, color 0.2s; */
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  box-shadow: 5px 5px 5px hotpink;
 }
 
 button:hover {
   background: black;
   color: white;
+  cursor: pointer;
+  width: 800px;
 }
