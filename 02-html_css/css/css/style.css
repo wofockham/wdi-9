@@ -1,0 +1,88 @@
+* {
+  margin: 0; /* Reset browser margin */
+}
+
+/* Descendant selector */
+.leader p {
+  color: red;
+}
+
+.foreign {
+  color: green;
+}
+
+.highlight {
+  font-family: Arial;
+  color: pink;
+}
+
+.container {
+  max-width: 960px;
+  margin: auto;
+}
+
+div { /* 1 point specificity */
+  background-color: white;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+}
+
+.green { /* 10 point specificity */
+  background-color: green;
+}
+
+#red { /* 50 point specificity */
+  background-color: red;
+}
+
+img, .box {
+  border-radius: 20px;
+}
+
+a {
+  color: red;
+}
+
+a:hover {
+  font-size: 150%;
+  color: black;
+}
+
+a:active {
+  color: pink;
+}
+
+a:visited {
+  color: rgb(17, 100, 255);
+}
+
+.balloon {
+  margin: 50px;
+  width: 300px;
+  background-color: #3E3E7D;
+  padding: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
