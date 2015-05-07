@@ -1,11 +1,17 @@
-var videos = document.getElementsByTagName('a');
+var $videos = $('a');
 
-for (var i = 0; i < videos.length; i++) {
-  var link = videos[i];
-  var thumbnail = youtube.generateThumbnailUrl(link.getAttribute('href'));
+for (var i = 0; i < $videos.length; i++) {
+  var $link = $($videos[i]);
+  var thumbnail = youtube.generateThumbnailUrl($link.attr('href'));
 
-  var image = document.createElement('img');
-  image.setAttribute('src', thumbnail);
+  var $image = $('<img>').attr('src', thumbnail);
 
-  link.appendChild(image);
+  $link.append($image);
 }
+
+// Even fancier:
+// $videos.each(function () {
+//   var thumbnail = youtube.generateThumbnailUrl($(this).attr('href'));
+//   var $image = $('<img>').attr('src', thumbnail);
+//   $(this).append($image);
+// });
