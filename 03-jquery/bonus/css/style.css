@@ -1,0 +1,25 @@
+.container {
+  max-width: 960px;
+  margin: auto;
+}
+
+p {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: white;
+  text-shadow: 0 0 2px black;
+  font-size: 1.4em;
+  padding: 1em;
+}
+
+.parallax {
+  background-image: url(http://www.fillmurray.com/1000/1000);
+  background-attachment: fixed;
+}
+
+.bubble {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 1px solid blue;
+  border-radius: 100%;
+}
