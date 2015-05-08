@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Inputs Demo</title>
+
+  <style>
+
+    input {
+      display: block;
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <h1>HTML5 Inputs Demo</h1>
+
+  <h2>Basic Input</h2>
+
+  <input>
+
+  <input type="text">
+
+  <input type="text" name="firstname">
+
+  <input type="text" placeholder="How are you?" id="placeholder-demo">
+
+  <input type="text" id="value-demo" value="Some predefined value" placeholder="Also works">
+
+  <label for="city">Hometown:  </label>
+  <input type="text" id="city" placeholder="Phoenix, AZ">
+
+  <h2>Textarea</h2>
+
+  <textarea id="textarea-demo" placeholder="Your life story here">
+    predefined
+
+    multiline
+
+    value
+
+    IGNORES <h1>HTML SHIT</h1>
+  </textarea>
+
+  <h2>HTML5 Inputs</h2>
+  <form>
+    <label for="numeric">Numeric input:</label>
+    <input type="number" id="numeric" placeholder="Credit card number" required>
+
+    <label for="emailic">Email:</label>
+    <input type="email" id="emailic">
+
+    <label for="urlic">Your MySpace:</label>
+    <input type="url">
+
+    <label for="coloric">Favourite Colour:</label>
+    <input type="color" value="#ff00aa">
+
+    <label for="rangey">Some Value</label>
+    <input type="range" id="rangey">
+
+    <input type="fingerprint" placeholder="Graceful degradation">
+
+    <input type="submit" value="Sell my soul">
+  </form>
+
+
+  <h2>Buttons</h2>
+
+    <input type="button" value="Click here">
+    <button>Click here also</button>
+
+  <h2>Radio Buttons</h2>
+    <label for="a">Strongly disagree: </label><input type="radio" id="a" name="preference">
+    <label for="b">Disagree: </label><input type="radio" id="b" name="preference">
+    <label for="c">Agree: </label><input type="radio" id="c" name="preference">
+    <label for="d">Strongly agree: </label><input type="radio" id="d" name="preference">
+
+  <h2>Check boxes</h2>
+    <label for="groucho">Groucho</label>
+    <input type="checkbox" id="groucho">
+    <label for="harpo">Harpo</label>
+    <input type="checkbox" id="harpo">
+    <label for="chico">Chico</label>
+    <input type="checkbox" id="chico">
+    <label for="zeppo">Zeppo</label>
+    <input type="checkbox" id="zeppo">
+
+
+</body>
+</html>
