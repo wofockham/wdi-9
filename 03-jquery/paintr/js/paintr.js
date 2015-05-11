@@ -7,8 +7,6 @@ $(document).ready(function () {
     var $box = $('<div></div>').addClass('box');
     $box.css('background-color', color);
 
-    $box.on('click', selectColor);
-
     $('#palette').prepend($box);
   };
 
@@ -18,9 +16,36 @@ $(document).ready(function () {
   // Set current paint colour.
   var selectColor = function () {
     var color = $(this).css('background-color');
-    console.log('you selected', color);
+    $('#selectedColor').css('background-color', color);
   };
 
-  console.log('current box count', $('.box').length);
+  // Delegate to the parent
+  $('#palette').on('click', '.box', selectColor);
+
+
+  // Set up the canvas.
+  var createCanvas = function(pixelCount) {
+    for (var i = 0; i < pixelCount; i++) {
+      $('<div></div>').addClass('pixel').appendTo('#canvas');
+    }
+  }
+
+  createCanvas(10000);
+
+  var paint = function (event) {
+    if (event.ctrlKey) {
+      var color = $('#selectedColor').css('background-color');
+      $(this).css('background-color', color);
+    }
+  };
+
+  // Delegation to the rescue again.
+  $('#canvas').on('mouseover', '.pixel', paint);
 
 });
+
+
+
+
+
+

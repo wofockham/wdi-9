@@ -11,8 +11,18 @@
   display: inline-block;
   margin: 0.25em;
   cursor: pointer;
+  line-height: 50px;
+  text-align: center;
 }
 
 #palette {
   margin-top: 1em;
+}
+
+.pixel {
+  width: 5px;
+  height: 5px;
+  display: inline-block;
+  border: 1px solid black;
+  float: left; /* Oh god I'm so sorry */
 }
