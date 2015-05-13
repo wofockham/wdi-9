@@ -5,4 +5,8 @@
   width: 150px;
   height: 150px;
   background: black;
+
+  /* Replaced by xPosition, yPosition in tween.js
+  transform: translate(-50%, -50%);
+  */
 }
