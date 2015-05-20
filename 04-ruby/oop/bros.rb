@@ -94,28 +94,13 @@ end
 ###### Factory ######
 
 class MarxBrother
-  def name=(name) # Setter
+  # Ruby: please write these getters and setters for me!
+  attr_accessor :name, :vice, :instrument
+
+  def initialize(name, instrument, vice)
     @name = name
-  end
-
-  def name # Getter
-    @name
-  end
-
-  def vice=(vice) # Setter
-    @vice = vice
-  end
-
-  def vice # Getter
-    @vice
-  end
-
-  def instrument=(instrument) # Setter
     @instrument = instrument
-  end
-
-  def instrument
-    @instrument
+    @vice = vice
   end
 
   def play
@@ -126,7 +111,7 @@ class MarxBrother
     "#{@name} enjoys #{@vice}."
   end
 
-  def acting
+  def act
     "Look at me everyone, I am acting!"
   end
 end
