@@ -1,9 +1,14 @@
 <h1>Thank you for using crappy calculator</h1>
 
-<p>x: <%= @x %></p>
-<p>y: <%= @y %></p>
+<% if @result %>
 
-The result is: <strong><%= @result %></strong>
+  <p>x: <%= @x %></p>
+  <p><%= params[:operator] %></p>
+  <p>y: <%= @y %></p>
+
+  The result is: <strong><%= @result %></strong>
+
+<% end %>
 
 <form action="/calc">
   <input type="number" name="x" placeholder="x value">
