@@ -1,0 +1,14 @@
+<h1>Thank you for using crappy calculator</h1>
+
+<p>x: <%= @x %></p>
+<p>y: <%= @y %></p>
+
+The result is: <strong><%= @result %></strong>
+
+<form action="/calc">
+  <input type="number" name="x" placeholder="x value">
+  <input type="text" name="operator" placeholder="operator (* / + -)">
+  <input type="number" name="y" placeholder="y value">
+
+  <button>Calculate!</button>
+</form>
