@@ -1,3 +1,4 @@
+###### Hash for each brother ######
 groucho = {
   :instrument => 'guitar',
   :vice => 'cigars'
@@ -13,7 +14,7 @@ chico = {
   :vice => 'hijinx'
 }
 
-###### Alternatively #######
+###### Alternatively, a hash for each property #######
 
 vices = {
   :groucho => 'cigars',
@@ -33,21 +34,24 @@ def plays(h)
   end
 end
 
-plays(instruments)
-
 def enjoys(h)
   h.each do |brother, vice|
     puts "#{brother.capitalize} enjoys #{vice}."
   end
 end
 
-enjoys(vices)
+plays(instruments) # Makes sense
+enjoys(vices) # Makes sense
 
-###### JS: Plain old objects ######
+plays(vices) # Huh?
+enjoys(instruments) # What are you doing?
+
+
+###### JS-style OOP: Plain old objects, a lot of repetition ######
 
 groucho = Object.new
 
-def groucho.vice
+def groucho.vice # These methods are kind of like read-only key/value pairs in hashes.
   'cigars'
 end
 
@@ -91,11 +95,10 @@ def harpo.act
 end
 
 
-###### Factory ######
+###### OOP Ruby: The Right Way ######
 
 class MarxBrother
-  # Ruby: please write these getters and setters for me!
-  attr_accessor :name, :vice, :instrument
+  attr_accessor :name, :vice, :instrument # This creates getter and setter methods for you.
 
   def initialize(name, instrument, vice)
     @name = name
@@ -116,21 +119,16 @@ class MarxBrother
   end
 end
 
+groucho = MarxBrother.new 'Groucho', 'guitar', 'cigars'
+harpo = MarxBrother.new 'Harpo', 'harp', 'mutism'
+
+puts harpo.play
+puts groucho.enjoy
+
+# You can still override the methods from the class:
+def harpo.act
+  "Look at me everyone, I am acting!"
+end
+
 require 'pry'
 binding.pry
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
