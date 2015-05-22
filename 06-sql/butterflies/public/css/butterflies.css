@@ -1,0 +1,9 @@
+html, body {
+  background-color: lime;
+  color: white;
+}
+
+.container {
+  max-width: 960px;
+  margin: auto;
+}
