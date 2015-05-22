@@ -7,3 +7,9 @@ html, body {
   max-width: 960px;
   margin: auto;
 }
+
+label {
+  display: inline-block;
+  min-width: 50px;
+  text-align: right;
+}
