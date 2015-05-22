@@ -1,0 +1,4 @@
+Bowie, 22, female
+Craigsy, 18, male
+Groucho, 150, male
+Riley, 50, male
