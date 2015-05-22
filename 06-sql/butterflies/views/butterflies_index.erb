@@ -3,6 +3,7 @@
   <% @butterflies.each do |butterfly| %>
     <li>
       <a href="/butterflies/<%= butterfly['id'] %>">
+        <img class="thumb" src="<%= butterfly['image'] %>">
         <%= butterfly['name'] %>
       </a>
     </li>

@@ -1,6 +1,37 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
+
 html, body {
-  background-color: lime;
+  background-color: #04B404;
   color: white;
+  font-family: 'Open Sans', sans-serif;
+}
+
+nav {
+  text-align: right;
+}
+
+nav a {
+  text-decoration: underline;
+}
+
+label {
+  display: inline-block;
+  min-width: 55px;
+  text-align: right;
+}
+
+a {
+  color: #eef;
+  text-decoration: none;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+  margin: 0.5em;
 }
 
 .container {
@@ -8,8 +39,21 @@ html, body {
   margin: auto;
 }
 
-label {
-  display: inline-block;
-  min-width: 50px;
-  text-align: right;
+.thumb {
+  height: 10em;
+  display: block;
+  border-radius: 0.5em;
+}
+
+.main {
+  max-width: 80%;
+  border-radius: 0.5em;
+}
+
+.thumb, .main {
+  transition: 0.2s all linear;
+}
+
+.thumb:hover, .main {
+  box-shadow: 0 0 1em black;
 }
