@@ -14,6 +14,10 @@ get '/butterflies' do
   erb :butterflies_index
 end
 
+get '/butterflies/new' do
+  erb :butterflies_new
+end
+
 get '/butterflies/:id' do
   db = SQLite3::Database.new 'database.db'
   db.results_as_hash = true
@@ -22,7 +26,4 @@ get '/butterflies/:id' do
 
   erb :butterflies_show
 end
-
-
-
 
