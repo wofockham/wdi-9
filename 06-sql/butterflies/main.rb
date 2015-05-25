@@ -1,20 +1,38 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'sqlite3'
+require 'active_record'
+
+# Sets up our connection to the database.db we have created.
+ActiveRecord::Base.establish_connection(
+  :adapter => 'sqlite3',
+  :database => 'database.db'
+)
+
+ActiveRecord::Base.logger = Logger.new(STDERR) # Logs out the AR generated SQL in the terminal.
+
+class Butterfly < ActiveRecord::Base
+end
 
 get '/' do
   erb :home
 end
 
 get '/butterflies' do
-  @butterflies = db_query "SELECT * FROM butterflies"
+  @butterflies = Butterfly.all
   erb :butterflies_index
 end
 
 post '/butterflies' do
-  q = "INSERT INTO butterflies (name, family, image) VALUES ('#{ params['name'] }', '#{ params['family'] }', '#{ params['image'] }')"
-  db_query q
-  redirect to('/butterflies')
+  butterfly = Butterfly.new
+
+  butterfly.name = params[:name]
+  butterfly.family = params[:family]
+  butterfly.image = params[:image]
+
+  butterfly.save
+
+  redirect to("/butterflies/#{ butterfly.id }")
 end
 
 get '/butterflies/new' do
@@ -22,38 +40,33 @@ get '/butterflies/new' do
 end
 
 get '/butterflies/:id' do
-  @butterfly = db_query "SELECT * FROM butterflies WHERE id = #{ params[:id] }"
-  @butterfly = @butterfly.first # Get the single butterfly out of the array.
+  @butterfly = Butterfly.find params[:id] # No array unwrapping needed: returns a single butterfly object.
   erb :butterflies_show
 end
 
 get '/butterflies/:id/edit' do
-  @butterfly = db_query "SELECT * FROM butterflies WHERE id = #{ params[:id] }"
-  @butterfly = @butterfly.first
+  @butterfly = Butterfly.find params[:id]
   erb :butterflies_edit
 end
 
 post '/butterflies/:id' do
-  q = "UPDATE butterflies SET name='#{ params[:name] }', family='#{ params[:family] }', image='#{ params[:image] }' WHERE id=#{params[:id]}"
-  db_query q
+  butterfly = Butterfly.find params[:id]
+
+  butterfly.name = params[:name]
+  butterfly.family = params[:family]
+  butterfly.image = params[:image]
+
+  butterfly.save
+
   redirect to("/butterflies/#{ params[:id] }")
 end
 
 get '/butterflies/:id/delete' do
-  db_query "DELETE FROM butterflies WHERE id = #{ params[:id] }"
+  butterfly = Butterfly.find params[:id]
+  butterfly.destroy
   redirect to('/butterflies')
 end
 
-def db_query(sql)
-  db = SQLite3::Database.new 'database.db'
-  db.results_as_hash = true
-
-  result = db.execute sql
-
-  db.close
-
-  result
-end
 
 
 
