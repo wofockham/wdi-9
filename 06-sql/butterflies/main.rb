@@ -11,10 +11,12 @@ ActiveRecord::Base.establish_connection(
 
 ActiveRecord::Base.logger = Logger.new(STDERR) # Logs out the AR generated SQL in the terminal.
 
-class Butterfly < ActiveRecord::Base
-end
+# Load these after we have connected to the database or it won't work.
+require_relative 'butterfly'
+require_relative 'plant'
 
-class Plant < ActiveRecord::Base
+after do
+  ActiveRecord::Base.connection.close
 end
 
 get '/pry' do
@@ -37,6 +39,7 @@ post '/butterflies' do
   butterfly.name = params[:name]
   butterfly.family = params[:family]
   butterfly.image = params[:image]
+  butterfly.plant_id = params[:plant_id]
 
   butterfly.save
 
@@ -63,6 +66,7 @@ post '/butterflies/:id' do
   butterfly.name = params[:name]
   butterfly.family = params[:family]
   butterfly.image = params[:image]
+  butterfly.plant_id = params[:plant_id]
 
   butterfly.save
 
@@ -79,6 +83,64 @@ get '/plants' do
   @plants = Plant.all
   erb :plants_index
 end
+
+post '/plants' do
+  plant = Plant.new
+
+  plant.name = params[:name]
+  plant.image = params[:image]
+
+  plant.save
+
+  redirect to("/plants/#{ plant.id }")
+end
+
+# This needs to come before /plants/:id so it is caught earlier and not interpreted as
+# GET me the plant with id='new'
+get '/plants/new' do
+  erb :plants_new
+end
+
+get '/plants/:id' do
+  @plant = Plant.find params[:id]
+  erb :plants_show
+end
+
+get '/plants/:id/delete' do
+  plant = Plant.find params[:id]
+  plant.destroy
+
+  redirect to('/plants')
+end
+
+get '/plants/:id/edit' do
+  @plant = Plant.find params[:id]
+  erb :plants_edit
+end
+
+post '/plants/:id' do
+  plant = Plant.find params[:id]
+
+  plant.name = params[:name]
+  plant.image = params[:image]
+
+  plant.save
+
+  redirect to("/plants/#{ plant.id }")
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

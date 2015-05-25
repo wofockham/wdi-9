@@ -8,6 +8,13 @@
   <label for="image">Image:</label>
   <input type="url" id="image" name="image" value="<%= @butterfly['image'] %>"><br>
 
+  <label for="plant_id">Larval plant:</label>
+  <select name="plant_id" id="plant_id">
+    <% Plant.all.each do |plant| %>
+      <option value="<%= plant.id %>"><%= plant.name %></option>
+    <% end %>
+  </select><br>
+
   <button>Update butterfly</button>
 
 </form>
