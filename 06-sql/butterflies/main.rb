@@ -14,6 +14,14 @@ ActiveRecord::Base.logger = Logger.new(STDERR) # Logs out the AR generated SQL i
 class Butterfly < ActiveRecord::Base
 end
 
+class Plant < ActiveRecord::Base
+end
+
+get '/pry' do
+  require 'pry'
+  binding.pry
+end
+
 get '/' do
   erb :home
 end
@@ -65,6 +73,11 @@ get '/butterflies/:id/delete' do
   butterfly = Butterfly.find params[:id]
   butterfly.destroy
   redirect to('/butterflies')
+end
+
+get '/plants' do
+  @plants = Plant.all
+  erb :plants_index
 end
 
 
