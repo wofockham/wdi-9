@@ -9,6 +9,11 @@
 
   <div class="container">
     <nav>
+
+      <% @families.each do |type| %>
+        <a href="/butterflies/family/<%= type.family %>"><%= type.family %></a>
+      <% end %>
+      |
       <a href="/">Home</a>
       <a href="/butterflies">All Butterflies</a>
       <a href="/butterflies/new">New Butterfly</a>

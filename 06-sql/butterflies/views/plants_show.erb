@@ -4,6 +4,17 @@
   <img class="main" src="<%= @plant.image %>">
 <% end %>
 
+<h3>Butterflies</h3>
+<ul>
+  <% @plant.butterflies.each do |butterfly| %>
+    <li>
+      <a href="/butterflies/<%= butterfly.id %>">
+        <%= butterfly.name %>
+      </a>
+    </li>
+  <% end %>
+</ul>
+
 <p>
   <a href="/plants/<%= @plant.id %>/edit">Edit</a>
   <a href="/plants/<%= @plant.id %>/delete">Delete</a>

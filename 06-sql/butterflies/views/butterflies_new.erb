@@ -10,6 +10,7 @@
 
   <label for="plant_id">Larval plant:</label>
   <select name="plant_id" id="plant_id">
+    <option></option>
     <% Plant.all.each do |plant| %>
       <option value="<%= plant.id %>"><%= plant.name %></option>
     <% end %>

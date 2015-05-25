@@ -10,8 +10,11 @@
 
   <label for="plant_id">Larval plant:</label>
   <select name="plant_id" id="plant_id">
+    <option></option>
     <% Plant.all.each do |plant| %>
-      <option value="<%= plant.id %>"><%= plant.name %></option>
+      <option value="<%= plant.id %>" <%= "selected" if @butterfly.plant_id == plant.id %>>
+        <%= plant.name %>
+      </option>
     <% end %>
   </select><br>
 

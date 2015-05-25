@@ -15,6 +15,10 @@ ActiveRecord::Base.logger = Logger.new(STDERR) # Logs out the AR generated SQL i
 require_relative 'butterfly'
 require_relative 'plant'
 
+before do
+  @families = Butterfly.select(:family).uniq
+end
+
 after do
   ActiveRecord::Base.connection.close
 end
@@ -77,6 +81,11 @@ get '/butterflies/:id/delete' do
   butterfly = Butterfly.find params[:id]
   butterfly.destroy
   redirect to('/butterflies')
+end
+
+get '/butterflies/family/:family' do
+  @butterflies = Butterfly.where(:family => params[:family])
+  erb :butterflies_index
 end
 
 get '/plants' do
