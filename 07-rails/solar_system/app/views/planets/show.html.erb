@@ -1,3 +1,5 @@
-<h2>Planet Show Page</h2>
 Name: <%= @planet.name %>
 <%= image_tag @planet.image %>
+
+<%= link_to('Edit Planet', planet_edit_path(@planet.id)) %>
+<%= button_to('Destroy Planet', planet_delete_path(@planet.id)) %>
