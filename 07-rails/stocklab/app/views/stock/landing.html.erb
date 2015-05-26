@@ -1,5 +1,9 @@
 <% if @price %>
-  Last trade for <%= @symbol %>: <b>$<%= @price %></b>
+  <marquee>
+    <% 20.times do %>
+      Last trade for <%= @symbol %>: <b>$<%= @price %></b>
+    <% end %>
+  </marquee>
 <% end %>
 
 <form action="/quote">
