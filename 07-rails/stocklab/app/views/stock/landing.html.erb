@@ -1,0 +1,9 @@
+<% if @price %>
+  Last trade for <%= @symbol %>: <b>$<%= @price %></b>
+<% end %>
+
+<form action="/quote">
+  <label for="symbol">Stock Symbol:</label>
+  <input type="text" id="symbol" name="symbol" placeholder="GOOG">
+  <button>Look up</button>
+</form>
