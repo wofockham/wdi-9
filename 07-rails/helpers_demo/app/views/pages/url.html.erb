@@ -1,0 +1,28 @@
+<h1>URL Helpers</h1>
+
+<p>
+  <a href="/">Home</a>
+</p>
+
+<p>
+  <%= link_to('Home', root_path) %>
+</p>
+
+<p>
+  <%= link_to('Text', text_path) %>
+</p>
+
+<p>
+  <%= link_to('Also Numbers', numbers_path) %>
+  <%= link_to('Numbers', numbers_path) %>
+</p>
+
+<p>
+  <%= link_to('Assets', assets_path) %>
+</p>
+
+<p>
+  <%= link_to('URL', url_path) %>
+</p>
+
+<%= button_to('Test', root_path, :method => 'get') %>
