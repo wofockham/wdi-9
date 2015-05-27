@@ -13,6 +13,7 @@ class WorksController < ApplicationController
   end
 
   def edit
+    @work = Work.find params[:id]
   end
 
   def show
@@ -20,6 +21,9 @@ class WorksController < ApplicationController
   end
 
   def update
+    work = Work.find params[:id]
+    work.update work_params
+    redirect_to work
   end
 
   def destroy
