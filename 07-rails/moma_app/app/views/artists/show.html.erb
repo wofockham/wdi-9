@@ -4,4 +4,6 @@
   <li><%= @artist.nationality %></li>
   <li><%= @artist.dob.strftime '%A %e %B, %Y' %></li>
   <li><%= @artist.period %></li>
+  <li><%= link_to 'Edit', edit_artist_path(@artist) %></li>
+  <li><%= link_to 'Delete',  @artist, :method => 'delete' %></li>
 </ul>

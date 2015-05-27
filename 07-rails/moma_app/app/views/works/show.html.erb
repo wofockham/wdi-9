@@ -3,6 +3,7 @@
   <li><%= @work.year %></li>
   <li><%= @work.medium %></li>
   <li><%= @work.style %></li>
+  <li><%= link_to('Delete', @work, :method => 'delete', :data => {:confirm => 'Are you sure?'}) %></li>
 </ul>
 
 <%= image_tag(@work.image, :class => 'main') %>
