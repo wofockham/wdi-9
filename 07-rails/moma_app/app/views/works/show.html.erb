@@ -3,6 +3,9 @@
   <li><%= @work.year %></li>
   <li><%= @work.medium %></li>
   <li><%= @work.style %></li>
+  <% if @work.artist %>
+    <li><%= link_to(@work.artist.name, @work.artist) %></li>
+  <% end %>
   <li><%= link_to('Edit', edit_work_path(@work)) %></li>
   <li><%= link_to('Delete', @work, :method => 'delete', :data => {:confirm => 'Are you sure?'}) %></li>
 </ul>
