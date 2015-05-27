@@ -1,3 +1,21 @@
+html {
+  background-color: linen;
+}
+
+.container {
+  max-width: 960px;
+  margin: auto;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+}
+
 .thumb {
   max-width: 10em;
 }
