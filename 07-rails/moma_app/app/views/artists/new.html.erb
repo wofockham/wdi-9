@@ -1,2 +1,31 @@
-<h1>Artists#new</h1>
-<p>Find me in app/views/artists/new.html.erb</p>
+<h2>New Artist</h2>
+<%= form_for @artist do |f| %>
+
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :nationality %>
+    <%= f.text_field :nationality %>
+  </p>
+
+  <p>
+    <%= f.label :dob, "Date of birth" %>
+    <%= f.text_field :dob %>
+  </p>
+
+  <p>
+    <%= f.label :period %>
+    <%= f.text_field :period %>
+  </p>
+
+  <p>
+    <%= f.label :image %>
+    <%= f.url_field :image %>
+  </p>
+
+  <%= f.submit %>
+
+<% end %>

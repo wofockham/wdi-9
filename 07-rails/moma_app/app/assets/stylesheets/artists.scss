@@ -25,3 +25,9 @@ nav li {
   margin: auto;
   display: block;
 }
+
+form label {
+  min-width: 85px;
+  text-align: right;
+  display: inline-block;
+}

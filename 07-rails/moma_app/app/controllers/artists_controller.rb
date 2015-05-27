@@ -4,9 +4,12 @@ class ArtistsController < ApplicationController
   end
 
   def create
+    artist = Artist.create artist_params
+    redirect_to artist
   end
 
   def new
+    @artist = Artist.new
   end
 
   def edit
@@ -20,5 +23,10 @@ class ArtistsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+  def artist_params
+    params.require(:artist).permit(:name, :nationality, :dob, :period, :image)
   end
 end
