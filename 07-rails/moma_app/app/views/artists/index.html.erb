@@ -1,2 +1,10 @@
-<h1>Artists#index</h1>
-<p>Find me in app/views/artists/index.html.erb</p>
+<h2>All Artists</h2>
+<% @artists.each do |artist| %>
+  <ul>
+    <li><%= image_tag(artist.image, :class => 'thumb') %></li>
+    <li><%= link_to(artist.name, artist) %></li>
+    <li><%= artist.nationality %></li>
+    <li><%= artist.dob.strftime '%A %e %B, %Y' %></li>
+    <li><%= artist.period %></li>
+  </ul>
+<% end %>

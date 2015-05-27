@@ -1,2 +1,8 @@
-<h1>Works#show</h1>
-<p>Find me in app/views/works/show.html.erb</p>
+<h2><%= @work.title %></h2>
+<ul>
+  <li><%= @work.year %></li>
+  <li><%= @work.medium %></li>
+  <li><%= @work.style %></li>
+</ul>
+
+<%= image_tag(@work.image, :class => 'main') %>

@@ -1,2 +1,7 @@
-<h1>Artists#show</h1>
-<p>Find me in app/views/artists/show.html.erb</p>
+<h2><%= @artist.name %></h2>
+<ul>
+  <li><%= image_tag(@artist.image, :class => 'main') %></li>
+  <li><%= @artist.nationality %></li>
+  <li><%= @artist.dob.strftime '%A %e %B, %Y' %></li>
+  <li><%= @artist.period %></li>
+</ul>
