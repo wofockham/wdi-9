@@ -3,3 +3,11 @@ label {
   display: inline-block;
   text-align: right;
 }
+
+.field_with_errors {
+  display: inline-block;
+}
+
+.field_with_errors input {
+  border-color: red;
+}
