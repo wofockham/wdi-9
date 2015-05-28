@@ -1,0 +1,13 @@
+= form_for @user do |f|
+  %p
+    = f.label :name
+    = f.text_field :name, :autofocus => true
+  %p
+    = f.label :password
+    = f.password_field :password
+  %p
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation
+  %p
+    = f.label :submit
+    = f.submit

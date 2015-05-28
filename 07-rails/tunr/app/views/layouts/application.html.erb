@@ -8,6 +8,13 @@
 </head>
 <body>
 
+<nav>
+  <ul>
+    <li><%= link_to('Home', root_path) %></li>
+    <li><%= link_to('Sign up', new_user_path) %></li>
+  </ul>
+</nav>
+
 <%= yield %>
 
 </body>

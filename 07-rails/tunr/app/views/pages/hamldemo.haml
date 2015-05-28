@@ -1,0 +1,22 @@
+%h1 Hello World From HAML
+
+%p this is a paragraph
+
+%span= 3 ** 99
+
+%div.content
+  %h2 this is a subheading
+  %h3 this is a sub sub heading
+  %p
+    %span span1
+    %span span2
+
+%nav
+  %ul
+    %li%a{:href => ""}
+    %li%a{:href => ""}
+    %li%a{:href => ""}
+
+- numbers = (0..10).to_a
+- numbers.each do |number|
+  %h6= number
