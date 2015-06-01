@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Landmarks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Address</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @landmarks.each do |landmark| %>
+      <tr>
+        <td><%= landmark.name %></td>
+        <td><%= landmark.description %></td>
+        <td><%= landmark.address %></td>
+        <td><%= link_to 'Show', landmark %></td>
+        <td><%= link_to 'Edit', edit_landmark_path(landmark) %></td>
+        <td><%= link_to 'Destroy', landmark, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Landmark', new_landmark_path %>
