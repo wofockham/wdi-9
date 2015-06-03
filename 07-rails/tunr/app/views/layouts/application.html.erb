@@ -2,24 +2,37 @@
 <html>
 <head>
   <title>Tunr</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<nav>
-  <ul>
-    <li><%= link_to('Home', root_path) %></li>
-    <%== intellinav %>
-  </ul>
-</nav>
+<div class="container">
 
-<% if flash[:notice].present? %>
-  <h2><%= flash[:notice] %></h2>
-<% end %>
+  <div class="row">
 
-<%= yield %>
+    <div class="col-md-2 col-md-push-10">
+      <nav>
+        <ul>
+          <li><%= link_to('Home', root_path) %></li>
+          <%== intellinav %>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="col-md-10 col-md-pull-2">
+      <% if flash[:notice].present? %>
+        <h2><%= flash[:notice] %></h2>
+      <% end %>
+
+      <%= yield %>
+    </div>
+
+
+  </div>
+
+</div>
 
 </body>
 </html>

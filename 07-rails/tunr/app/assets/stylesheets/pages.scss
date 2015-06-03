@@ -1,3 +1,56 @@
-// Place all the styles related to the Pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@mixin center {
+  display: block;
+  margin: 0 auto;
+}
+
+@mixin indent($left) {
+  margin-left: $left;
+}
+
+$brand-color: #ff0230;
+$title-size: 30px;
+
+.post {
+  padding: 0 30px;
+  background-color: #bbb;
+  border: 1px solid green;
+  margin-bottom: 1em;
+
+  .slug {
+    font-size: $title-size;
+    font-style: italic;
+    text-align: center;
+    color: $brand-color;
+  }
+
+  .content {
+    font-size: $title-size / 2;
+    margin-top: 30px;
+    @include indent(50px);
+
+    p {
+      width: 60%;
+      margin-top: 20px;
+      @include center;
+    }
+  }
+}
+
+.notification {
+  background-color: linen;
+  border: 1px dashed white;
+  padding: 1em;
+  width: 50%;
+  margin: auto;
+  color: white;
+}
+
+.error {
+  @extend .notification;
+  color: red;
+}
+
+.success {
+  @extend .notification;
+  color: green;
+}

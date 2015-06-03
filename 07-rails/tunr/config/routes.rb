@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root :to => 'pages#home'
 
   get '/haml' => 'pages#hamldemo'
+  get '/sass' => 'pages#sassdemo'
 
   resources :users, :except => [:edit, :show] do
     collection do

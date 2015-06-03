@@ -4,4 +4,7 @@ class PagesController < ApplicationController
 
   def hamldemo
   end
+
+  def sassdemo
+  end
 end

@@ -4,15 +4,14 @@
       %li= msg
 
 = form_for @user do |f|
-  %p
+  %div.form-group
     = f.label :name
-    = f.text_field :name, :autofocus => true
-  %p
+    = f.text_field :name, :autofocus => true, :class => 'form-control'
+  %div.form-group
     = f.label :password
-    = f.password_field :password
-  %p
+    = f.password_field :password, :class => 'form-control'
+  %div.form-group
     = f.label :password_confirmation
-    = f.password_field :password_confirmation
-  %p
-    = f.label :submit
-    = f.submit
+    = f.password_field :password_confirmation, :class => 'form-control'
+  %div.form-group
+    = f.submit :class => 'btn btn-primary'
