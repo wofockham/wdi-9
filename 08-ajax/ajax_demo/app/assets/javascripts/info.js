@@ -13,7 +13,7 @@ $(document).ready(function () {
 
         console.warn(info.brother);
 
-        fetchInfo();
+        setTimeout(fetchInfo, 1000);
       }
     };
     request.send();
