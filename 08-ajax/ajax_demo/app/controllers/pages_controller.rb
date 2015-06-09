@@ -21,9 +21,13 @@ class PagesController < ApplicationController
   def info
     time = Time.now
     uptime = `uptime`.chomp
+    random = Random.rand(1..255)
     info = {
       :time => time,
-      :uptime => uptime
+      :uptime => uptime,
+      :random => random,
+      :nelsonMunce => 'ha' * 80,
+      :brother => %w{ Groucho Harpo Chico Zeppo }.sample
     }
 
     render :text => info.to_json
