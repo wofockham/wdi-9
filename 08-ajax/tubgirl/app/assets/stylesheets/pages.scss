@@ -1,0 +1,13 @@
+// Place all the styles related to the Pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.box {
+  width: 20em;
+  height: 20em;
+  border: 1px dashed blue;
+  text-align: center;
+  line-height: 20em;
+  margin: auto;
+  cursor: pointer;
+}

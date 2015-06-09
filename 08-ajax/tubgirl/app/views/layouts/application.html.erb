@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tubgirl</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <nav>
+    <%= link_to 'Home', root_path %>
+    <%= link_to 'Groucho', groucho_path %>
+    <%= link_to 'Harpo', harpo_path %>
+    <%= link_to 'Chico', chico_path %>
+  </nav>
+
+<%= yield %>
+
+</body>
+</html>
