@@ -2,10 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+html {
+  font-family: monospace;
+  background-color: #020;
+  color: #0f0;
+}
+
 .box {
   width: 4em;
   height: 4em;
-  border: 1px solid black;
+  border: 1px solid #0f0;
   display: inline-block;
   margin: 0.5em;
   text-align: center;

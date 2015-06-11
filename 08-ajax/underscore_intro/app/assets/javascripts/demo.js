@@ -32,6 +32,21 @@ var funkify = function (x) {
   return eval(equation);
 };
 
+var addRandom = function () {
+  numbers.push(_.random(1, 255));
+  showNumbers();
+};
+
+var timerID;
+var startSpew = function () {
+  stopSpew(); // Kill any previous timer.
+  timerID = setInterval(addRandom, 100);
+};
+
+var stopSpew = function () {
+  clearInterval(timerID);
+};
+
 $(document).ready(function () {
 
   $('#add_number').on('click', addNumber);
