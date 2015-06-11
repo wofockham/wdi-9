@@ -22,9 +22,36 @@ var squareNumbers = function () {
   showNumbers();
 };
 
+var funkifyNumbers = function () {
+  numbers = _(numbers).map(funkify);
+  showNumbers();
+};
+
+var funkify = function (x) {
+  var equation = $('#number').val();
+  return eval(equation);
+};
+
 $(document).ready(function () {
 
   $('#add_number').on('click', addNumber);
   $('#square').on('click', squareNumbers);
+  $('#funkify').on('click', funkifyNumbers);
+
+  $('#start').on('click', startSpew);
+  $('#stop').on('click', stopSpew);
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
