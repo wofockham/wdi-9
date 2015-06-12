@@ -15,7 +15,9 @@ var AppRouter = Backbone.Router.extend({
   },
 
   viewPost: function (id) {
-    console.log('viewPost route', id);
+    var post = blogPosts.get(id);
+    var postView = new PostView({model: post});
+    postView.render();
   }
 });
 
@@ -67,6 +69,16 @@ var PostListView = Backbone.View.extend({
   },
   showPost: function () {
     router.navigate('posts/' + this.model.get('id'), true);
+  }
+});
+
+var PostView = Backbone.View.extend({
+  el: '#main',
+  render: function () {
+    var postTemplate = $('#postTemplate').html();
+    var postHTML = _.template(postTemplate);
+
+    this.$el.html(postHTML(this.model.toJSON()));
   }
 });
 
