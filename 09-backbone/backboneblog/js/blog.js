@@ -1,19 +1,23 @@
+// Use {{ Handlebars style }} interpolation instead of <%= erb style %>.
 _.templateSettings = {
   evaluate : /\{\[([\s\S]+?)\]\}/g,     // {[ console.log("Hello"); ]} - runs
   interpolate : /\{\{([\s\S]+?)\}\}/g   // {{ key }} - interpolates
 };
 
+// Router is similar to routes.rb in Rails but with code actions as well.
 var AppRouter = Backbone.Router.extend({
   routes: {
     '': 'index',
     'posts/:id': 'viewPost'
   },
 
+  // GET /
   index: function () {
     var appView = new AppView({collection: blogPosts});
     appView.render();
   },
 
+  // GET /posts/:id
   viewPost: function (id) {
     var post = blogPosts.get(id);
     var postView = new PostView({model: post});
@@ -21,6 +25,7 @@ var AppRouter = Backbone.Router.extend({
   }
 });
 
+// Model.
 var Post = Backbone.Model.extend({
   defaults: {
     title: 'Untitled Post',
@@ -28,10 +33,12 @@ var Post = Backbone.Model.extend({
   }
 });
 
+// Collection of a particular model.
 var Posts = Backbone.Collection.extend({
   model: Post
 });
 
+// Seed data: these would really come from the database.
 var blogPosts = new Posts([
   new Post({id: 1, title: 'Post 1', content: 'Content of first post'}),
   new Post({id: 2, title: 'Post 2nd', content: 'Content of second post'}),
@@ -40,7 +47,7 @@ var blogPosts = new Posts([
 ]);
 
 
-
+// Shows the landing page and a summary of all the blog posts.
 var AppView = Backbone.View.extend({
   el: '#main',
   render: function () {
@@ -54,6 +61,7 @@ var AppView = Backbone.View.extend({
   }
 });
 
+// View for a single post title (i.e. the summary view).
 var PostListView = Backbone.View.extend({
   tagName: 'li',
   events: {
@@ -72,6 +80,7 @@ var PostListView = Backbone.View.extend({
   }
 });
 
+// View for a single post.
 var PostView = Backbone.View.extend({
   el: '#main',
   render: function () {
@@ -84,6 +93,7 @@ var PostView = Backbone.View.extend({
 
 var router;
 
+// We wait for the document to finish loading before we do things that might use it.
 $(document).ready(function () {
   router = new AppRouter();
   Backbone.history.start();
