@@ -1,3 +1,8 @@
+_.templateSettings = {
+  evaluate : /\{\[([\s\S]+?)\]\}/g,     // {[ console.log("Hello"); ]} - runs
+  interpolate : /\{\{([\s\S]+?)\}\}/g   // {{ key }} - interpolates
+};
+
 var AppRouter = Backbone.Router.extend({
   routes: {
     '': 'index',
@@ -49,13 +54,26 @@ var AppView = Backbone.View.extend({
 
 var PostListView = Backbone.View.extend({
   tagName: 'li',
+  events: {
+    'click': 'showPost'
+  },
   render: function () {
-    console.log(this.model.toJSON());
+    var postListTemplate = $('#postListTemplate').html();
+    var postListHTML = _.template(postListTemplate);
+
+    this.$el.html( postListHTML( this.model.toJSON() ) );
+
+    $('#posts').append(this.$el);
+  },
+  showPost: function () {
+    router.navigate('posts/' + this.model.get('id'), true);
   }
 });
 
+var router;
+
 $(document).ready(function () {
-  var router = new AppRouter();
+  router = new AppRouter();
   Backbone.history.start();
 });
 
