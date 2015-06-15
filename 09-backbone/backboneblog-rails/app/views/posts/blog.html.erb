@@ -1,0 +1,36 @@
+  <div id="main"></div>
+
+  <script id="appTemplate" type="text/template">
+    <h2>Recent Posts</h2>
+    <ul id="posts"></ul>
+  </script>
+
+  <script id="postListTemplate" type="text/template">
+    <h3>{{ title }}</h3>
+  </script>
+
+  <script id="postTemplate" type="text/template">
+    <h2>{{ title }}</h2>
+    <p>{{ content }}</p>
+    <div id="comments"></div>
+
+    <form>
+      <div>
+        <label for="author">Name:</label><br>
+        <input id="author">
+      </div>
+
+      <div>
+        <label for="content">Your worthless opinion:</label><br>
+        <textarea id="content"></textarea>
+      </div>
+
+      <button>Post comment</button>
+    </form>
+  </script>
+
+  <script id="commentTemplate" type="text/template">
+    <hr>
+    <h4>{{ author }}</h4>
+    <p>{{ content }}</p>
+  </script>
