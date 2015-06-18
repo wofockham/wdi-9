@@ -19,7 +19,7 @@ var AppRouter = Backbone.Router.extend({
     myZooView.render();
   },
   viewAnimal: function (id) {
-    console.log('you are now viewing animal', id)
+    console.log('you are now viewing animal', id);
   }
 });
 
@@ -29,6 +29,8 @@ var Animal = Backbone.Model.extend({
     ecosystem: '',
     stripes: 0
   },
+
+  urlRoot: '/animals',
 
   initialize: function () {
     this.on('change:type', function (model) {

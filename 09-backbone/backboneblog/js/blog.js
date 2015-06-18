@@ -33,7 +33,7 @@ var Post = Backbone.Model.extend({
   }
 });
 
-// Collection of a particular model.
+// Collection of our particular model.
 var Posts = Backbone.Collection.extend({
   model: Post
 });

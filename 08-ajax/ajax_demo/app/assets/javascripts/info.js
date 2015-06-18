@@ -15,7 +15,7 @@ $(document).ready(function () {
     });
   }
 
-  fetchInfo();
+  //fetchInfo();
 
 });
 

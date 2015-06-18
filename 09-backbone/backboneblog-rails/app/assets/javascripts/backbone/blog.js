@@ -8,6 +8,10 @@ _.templateSettings = {
 
 // We wait for the document to finish loading before we do things that might use it.
 $(document).ready(function () {
+  if ($('#main').length === 0) {
+    return;
+  }
+
   // Fetch posts from the database on the server.
   app.blogPosts = new app.Posts();
   app.blogPosts.fetch().done(function () {
