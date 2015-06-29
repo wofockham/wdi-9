@@ -28,7 +28,28 @@ describe Bank do
     it 'deposits money from client into their account' do
       bank.create_account('Jonesy', 200)
       bank.deposit('Jonesy', 300)
-      expect(bank.accounts['Jonesy']).to eq 200 + 300
+      expect(bank.balance('Jonesy')).to eq 200 + 300
+    end
+  end
+
+  describe '#balance' do
+    it 'returns the balance for the given account' do
+      bank.create_account('Jonesy', 200)
+      expect(bank.balance('Jonesy')).to eq 200
+    end
+  end
+
+  describe '#withdraw' do
+    it 'deducts money from the given account' do
+      bank.create_account('Jonesy', 200)
+      bank.withdraw('Jonesy', 100)
+      expect(bank.balance('Jonesy')).to eq 200 - 100
+    end
+
+    it 'prevents withdrawals that exceed the balance' do
+      bank.create_account('Jonesy', 1)
+      bank.withdraw('Jonesy', 1_000_000)
+      expect(bank.balance('Jonesy')).to eq 1
     end
   end
 end
