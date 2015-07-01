@@ -6,9 +6,12 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  name       :string
+#  type       :string
 #
 
 class Fruit < ActiveRecord::Base
+  belongs_to :shelf
+
   def squishy?
     true
   end
