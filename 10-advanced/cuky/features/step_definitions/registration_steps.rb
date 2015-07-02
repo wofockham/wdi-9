@@ -4,8 +4,8 @@ end
 
 When(/^I sign up as a user with email "(.*?)"$/) do |email|
   fill_in 'Email', :with => email
-  fill_in 'Password', :with => 'chicken'
-  fill_in 'Password confirmation', :with => 'chicken'
+  fill_in 'Password', :with => 'password'
+  fill_in 'Password confirmation', :with => 'password'
   click_button 'Sign up'
 end
 
