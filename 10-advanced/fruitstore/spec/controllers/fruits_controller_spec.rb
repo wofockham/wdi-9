@@ -57,11 +57,11 @@ RSpec.describe FruitsController, :type => :controller do
       end
 
       it 'should redirect to the show action' do
-        pending
+        expect(response).to redirect_to(fruit_path(assigns(:fruit)))
       end
 
       it 'should increase the number of fruits' do
-        pending
+        expect(Fruit.count).to eq(1)
       end
     end
 
@@ -71,30 +71,16 @@ RSpec.describe FruitsController, :type => :controller do
       end
 
       it 'should give us a 200 success status' do
-        pending
+        expect(response.status).to eq(200)
       end
 
       it 'should render the new template' do
-        pending
+        expect(response).to render_template(:new)
       end
 
       it 'should not increase the number of fruits' do
-        pending
+        expect(Fruit.count).to eq(0)
       end
-
     end
   end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-

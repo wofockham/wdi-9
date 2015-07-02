@@ -12,6 +12,8 @@
 class Fruit < ActiveRecord::Base
   belongs_to :shelf
 
+  validates_presence_of :name
+
   def squishy?
     true
   end

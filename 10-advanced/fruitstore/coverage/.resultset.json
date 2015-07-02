@@ -61,11 +61,11 @@
         null,
         null,
         1,
-        0,
+        1,
         null,
         null,
         1,
-        0,
+        1,
         null,
         null,
         null,
@@ -75,16 +75,15 @@
         null,
         null,
         1,
-        0,
+        1,
         null,
         null,
         1,
-        0,
+        1,
         null,
         null,
         1,
-        0,
-        null,
+        1,
         null,
         null,
         null,
@@ -342,6 +341,20 @@
         9,
         null,
         null,
+        null,
+        1,
+        5,
+        5,
+        2,
+        null,
+        3,
+        null,
+        null,
+        null,
+        1,
+        1,
+        5,
+        null,
         null
       ],
       "/Users/inceptor/Projects/wdi-9/10-advanced/fruitstore/app/controllers/application_controller.rb": [
@@ -452,6 +465,8 @@
         1,
         null,
         1,
+        null,
+        1,
         0,
         null,
         null
@@ -505,6 +520,6 @@
         null
       ]
     },
-    "timestamp": 1435796630
+    "timestamp": 1435800059
   }
 }
