@@ -14,17 +14,30 @@ Then(/^I should have an account$/) do
 end
 
 Given(/^I am on the login page$/) do
-  pending # express the regexp above with the code you wish you had
+  visit '/users/sign_in'
 end
 
-Given(/^I have already registered as "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Given(/^I have already registered as "(.*?)"$/) do |email|
+  @user = User.create :email => email, :password => 'password', :password_confirmation => 'password'
 end
 
 When(/^I login with valid information$/) do
-  pending # express the regexp above with the code you wish you had
+  fill_in 'Email', :with => @user.email
+  fill_in 'Password', :with => 'password'
+  click_button 'Log in'
 end
 
-Then(/^I should see "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then(/^I should see "(.*?)"$/) do |expected|
+  assert page.has_content?(expected)
 end
+
+
+
+
+
+
+
+
+
+
+
