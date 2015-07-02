@@ -19,10 +19,10 @@ RSpec.describe Fruit, :type => :model do
       @apple = Apple.create :name => 'Golden Delicious'
     end
 
-    # it "should not be squishy" do
-    #   expect(@apple.squishy?).to be false
-    #   expect(@apple.squishy?).to eq false
-    # end
+    it "should not be squishy" do
+      expect(@apple.squishy?).to be false
+      expect(@apple.squishy?).to eq false
+    end
 
     it "should remember the class via Single Table Inheritance (STI)" do
       apple = Fruit.find(@apple.id)

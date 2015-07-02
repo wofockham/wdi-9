@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe FruitsController, :type => :controller do
   describe 'GET /fruits' do
     before do
-      3.times { |i| Fruit.create :name => "Fruit number #{ i }"}
+      3.times { |i| Fruit.create :name => "Fruit number #{ i }" }
     end
 
     describe 'as HTML' do
@@ -49,7 +49,43 @@ RSpec.describe FruitsController, :type => :controller do
       end
     end
   end
+
+  describe 'POST /fruits' do
+    describe 'a fruit with valid information' do
+      before do
+        post :create, { :fruit => { :name => 'Strawberry' } }
+      end
+
+      it 'should redirect to the show action' do
+        pending
+      end
+
+      it 'should increase the number of fruits' do
+        pending
+      end
+    end
+
+    describe 'a fruit with invalid information' do
+      before do
+        post :create, { :fruit => { :name => '' } }
+      end
+
+      it 'should give us a 200 success status' do
+        pending
+      end
+
+      it 'should render the new template' do
+        pending
+      end
+
+      it 'should not increase the number of fruits' do
+        pending
+      end
+
+    end
+  end
 end
+
 
 
 
