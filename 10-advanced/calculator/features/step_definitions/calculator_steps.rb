@@ -2,14 +2,14 @@ Given(/^I have a calculator$/) do
   @calculator = Calculator.new
 end
 
-Given(/^I have the number (\d+)$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Given(/^I have the number (\d+)$/) do |num|
+  @calculator << num
 end
 
 When(/^I add them together$/) do
-  pending # express the regexp above with the code you wish you had
+  @result = @calculator.add
 end
 
-Then(/^I should see (\d+) on the terminal$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then(/^I should see (\d+) on the terminal$/) do |num|
+  assert_equal num.to_i, @result
 end
