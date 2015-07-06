@@ -17,4 +17,10 @@ Feature: Calculator
     When I subtract them
     Then I should see 2 on the terminal
 
-  Scenario: Multiply two numbers
+  Scenario: Multiply three numbers
+    Given I have a calculator
+    And I have the number 3
+    And I have the number 4
+    And I have the number 5
+    When I multiply them
+    Then I should see 60 on the terminal

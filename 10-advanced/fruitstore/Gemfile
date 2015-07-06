@@ -34,8 +34,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
   gem 'simplecov', :require => false
-  
-  gem 'rspec-rails'
+
+  gem 'rspec-rails', '~> 3.1'
   gem 'shoulda-matchers'
   # gem 'rspec-pride'
 
