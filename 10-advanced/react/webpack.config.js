@@ -31,7 +31,7 @@ module.exports = {
       {
         test: /\.jsx?$/,         //is commonly used to match the file extension
         loaders: ['babel'],      //'react-hot' goes here as well, name of the loader that handles this condition
-        include: [path.resolve('scripts')]   //is commonly used to match the directories
+        //include: [path.resolve('scripts')]   //is commonly used to match the directories
       }
       //{
       //  test: /\.css$/,
