@@ -84,16 +84,15 @@ class SinglyLinkedList
     #   self.map { |node| node }.join(', ')
   # end
 
-  class Node
-    attr_accessor :value, :next
-
-    def initialize(value=nil)
-      @value = value
-      @next = nil
-    end
-
+  Node = Struct.new(:value, :next) do
     def to_s
       @value || nil
     end
   end
+
 end
+
+
+
+
+
