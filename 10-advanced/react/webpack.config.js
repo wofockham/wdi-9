@@ -7,9 +7,9 @@ module.exports = {
   devtool: 'eval',
   //entry points on modules that are loaded on the start, they all bundle together in 1 file
   entry: [
-    // 'webpack-dev-server/client?http://localhost:3000',    //path to js files (client)
-    // 'webpack/hot/only-dev-server',                        //path to js files (server) with our plugin it ll send pices of changed code
-    'main.js'
+    'webpack-dev-server/client?http://localhost:3000',    //path to js files (client)
+    'webpack/hot/only-dev-server',                        //path to js files (server) with our plugin it ll send pices of changed code
+    './main.js'
   ],
   //the output of the app
   output: {
@@ -17,9 +17,9 @@ module.exports = {
     filename: 'bundle.js'
   },
   //add additional plugins to the compiler
-  // plugins: [
-  //   new webpack.HotModuleReplacementPlugin()    //hot-module replacement. the updated module is replaced and via socket shown up on the page
-  // ],
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()    //hot-module replacement. the updated module is replaced and via socket shown up on the page
+  ],
   //when we require or import files we don't need to tell the extansion of the files .js and .jsx
   resolve: {
     extensions: ['', '.js', '.jsx']
@@ -30,13 +30,14 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx?$/,         //is commonly used to match the file extension
-        loaders: ['babel'],      //'react-hot' goes here as well, name of the loader that handles this condition
+        loaders: ['react-hot', 'babel'],      //'react-hot' goes here as well, name of the loader that handles this condition
         //include: [path.resolve('scripts')]   //is commonly used to match the directories
+        exclude: [/node_modules/]
+      },
+      {
+       test: /\.css$/,
+       loader: 'style!css?sourceMap'
       }
-      //{
-      //  test: /\.css$/,
-      //  loader: 'style!css?sourceMap'
-      //}
     ]
   },
   stats: {

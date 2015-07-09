@@ -1,9 +1,15 @@
 var React = require('react');
+var Header = require('./header');
+var Container = require('./container');
+
 
 const Hello = React.createClass({
   render(){
     return(
-      <div>Hello World!</div>
+      <div>
+        <Header />
+        <Container />
+      </div>
     );
   }
 });
