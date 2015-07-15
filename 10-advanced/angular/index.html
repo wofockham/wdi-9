@@ -1,20 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app>
 <head>
   <meta charset="UTF-8">
   <title>Angular Data Binding</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="js/jquery-binding.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.min.js"></script>
 </head>
 <body>
 
   <div>
     <label for="name">Name:</label>
-    <input type="text" id="name" placeholder="Your name here">
+    <input type="text" id="name" ng-model="yourName" placeholder="Your name here">
 
     <hr>
 
-    <h1>Hello </h1>
+    <h1>Hello {{ yourName }}</h1>
   </div>
 
 </body>
