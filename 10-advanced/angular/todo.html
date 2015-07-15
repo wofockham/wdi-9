@@ -15,7 +15,7 @@
     <ul class="unstyled">
       <li ng-repeat="todo in todoList.todos">
         <input type="checkbox" ng-model="todo.done">
-        <span>{{todo.text}}</span>
+        <span class="done-{{todo.done}}">{{todo.text}}</span>
       </li>
     </ul>
 
@@ -26,5 +26,15 @@
 
   </div>
 
+<style>
+.done-true {
+  color: #aaa;
+}
+</style>
+
 </body>
 </html>
+
+
+
+
